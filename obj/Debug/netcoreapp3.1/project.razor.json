@@ -14417,6 +14417,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\micha\\OneDrive\\Desktop\\stacks\\c_sharp\\ORMs\\BankAccounts\\Views\\Home\\Login.cshtml",
+      "TargetPath": "Views\\Home\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\micha\\OneDrive\\Desktop\\stacks\\c_sharp\\ORMs\\BankAccounts\\Views\\Bank\\Account.cshtml",
+      "TargetPath": "Views\\Bank\\Account.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\micha\\OneDrive\\Desktop\\stacks\\c_sharp\\ORMs\\BankAccounts\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"

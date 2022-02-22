@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace BankAccounts.Models
 {
@@ -35,10 +36,18 @@ namespace BankAccounts.Models
         [DataType(DataType.Password)]
         public string Confirm { get; set; }
 
+        public double Balance
+        {
+            get
+            {
+                return AllTransactions
+                    .Sum(t => t.Amount);
+            }
+        }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
-        public List<Transaction> AllTransactions { get; set; }
+        public List<Transactions> AllTransactions { get; set; }
     }
 }

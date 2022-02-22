@@ -1,0 +1,37 @@
+@model Transactions
+<div class="container-fluid d-flex justify-content-between">
+    <h1>Welcome, @ViewBag.loggedIn.FirstName</h1>
+    <h4>Current Balance: @ViewBag.loggedIn.Balance</h4>
+</div>
+
+<div class="container-fluid">
+    <form asp-action="TransactionDeposit">
+        <label class="mb-3" asp-for="Amount">Deposit</label>
+        <span class="mb-3 text-danger" asp-validation-for="Amount"></span>
+        <input class="form-control mb-3" asp-for="Amount">
+        <button class="btn btn-primary mb-3">Submit</button>
+    </form>
+
+    <form asp-action="TransactionWithdraw">
+        <label class="mb-3" asp-for="Amount">Withdraw</label>
+        <span class="mb-3 text-danger" asp-validation-for="Amount"></span>
+        <input class="form-control mb-3" asp-for="Amount">
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <table class="table table-striped">
+        <tr>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+        @foreach (Transactions item in ViewBag.AllTransactions)
+        {
+            <tr>
+                <td>@item.Amount</td>
+                <td>@item.CreatedAt</td>
+            </tr>
+        }
+    </table>
+</div>

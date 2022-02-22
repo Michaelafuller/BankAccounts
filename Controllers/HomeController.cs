@@ -50,10 +50,20 @@ namespace BankAccounts.Controllers
             db.SaveChanges();
 
             HttpContext.Session.SetInt32("UUID", newUser.UserId);
-            return RedirectToAction("Account");
+            return RedirectToAction("Account", "Bank");
         }
 
-        [HttpPost("/login")]
+        [HttpGet("/login")]
+        public IActionResult LoginForm()
+        {
+            if (HttpContext.Session.GetInt32("UUID") == null)
+            {
+                return View("Login");
+            }
+            return RedirectToAction("Login");
+        }
+
+        [HttpPost("/login/user")]
         public IActionResult Login(LoginUser loginUser)
         {
             if(ModelState.IsValid == false)
@@ -78,7 +88,7 @@ namespace BankAccounts.Controllers
                 }
                 HttpContext.Session.SetInt32("UUID", userInDb.UserId);
             }
-                return RedirectToAction("Success");
+                return RedirectToAction("Account", "Bank");
         }
 
         [HttpPost("/logout")]
@@ -90,7 +100,6 @@ namespace BankAccounts.Controllers
             }
             return RedirectToAction("Index");
         }
-
 
 
         public IActionResult Privacy()
